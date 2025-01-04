@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://6ofo58w83thf"]
+[gd_scene load_steps=30 format=3 uid="uid://djgun8qnwmg7l"]
 
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_lhb8t"]
 [ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-csgs/textures/dark/texture_01.png" id="2_48apn"]
@@ -9,6 +9,50 @@
 [ext_resource type="Script" path="res://Scripts/world/proto_csg_torus_3d.gd" id="7_q5fon"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="8_1tqbq"]
 [ext_resource type="AudioStream" uid="uid://c8oli6xv2ibdx" path="res://Assets/Sound FX/Modern7.mp3" id="8_x23xg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liyqm"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_cnb5r")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+grow_amount = -1.347
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cp5vh"]
+size = Vector3(3.70074, 0.54248, 4.86053)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ogld"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_cnb5r")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+grow_amount = -1.347
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_too8t"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_cnb5r")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+grow_amount = -1.347
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq1pi"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_cnb5r")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+grow_amount = -1.347
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrd2"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_cnb5r")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+grow_amount = -1.347
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u8jr"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("8_1tqbq")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d58uo"]
 resource_local_to_scene = true
@@ -86,43 +130,161 @@ sky = SubResource("Sky_0hdw3")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.15
 sdfgi_enabled = true
+sdfgi_min_cell_size = 5.08428
 sdfgi_energy = 2.055
 fog_light_color = Color(0.950589, 0.984819, 1, 1)
 fog_density = 0.0005
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0155
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liyqm"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("6_cnb5r")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-grow_amount = -1.347
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cp5vh"]
-size = Vector3(3.70074, 0.54248, 4.86053)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq1pi"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("6_cnb5r")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-grow_amount = -1.347
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrd2"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("6_cnb5r")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-grow_amount = -1.347
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u8jr"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("8_1tqbq")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-
 [node name="Level 2" type="Node3D"]
+
+[node name="Circles" type="Node" parent="."]
+
+[node name="ProtoCSGTorus3D8" parent="Circles" instance=ExtResource("5_gpixn")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, -28.37, 15.47, -4)
+inner_radius = 2.37252
+outer_radius = 3.38941
+material = SubResource("StandardMaterial3D_liyqm")
+script = ExtResource("7_q5fon")
+block_color = 4
+block_style = 11
+
+[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D8/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D8/Area3D"]
+transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="ProtoCSGTorus3D11" parent="Circles" instance=ExtResource("5_gpixn")]
+transform = Transform3D(3.62055e-08, -0.828285, -0.560307, -1, -4.37114e-08, 1.98742e-21, -2.44918e-08, 0.560307, -0.828285, -7.51195, -1.18904, -2.88005)
+inner_radius = 2.37252
+outer_radius = 3.38941
+material = SubResource("StandardMaterial3D_4ogld")
+script = ExtResource("7_q5fon")
+block_color = 4
+block_style = 11
+
+[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D11/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D11/Area3D"]
+transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="ProtoCSGTorus3D12" parent="Circles" instance=ExtResource("5_gpixn")]
+transform = Transform3D(2.92208e-08, -0.668495, 0.743717, -1, -4.37114e-08, 4.93327e-15, 3.25089e-08, -0.743717, -0.668495, 23.8587, 13.7604, -14.8973)
+inner_radius = 2.37252
+outer_radius = 3.38941
+material = SubResource("StandardMaterial3D_too8t")
+script = ExtResource("7_q5fon")
+block_color = 4
+block_style = 11
+
+[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D12/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D12/Area3D"]
+transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="ProtoCSGTorus3D9" parent="Circles" instance=ExtResource("5_gpixn")]
+transform = Transform3D(-1, -1.52574e-09, -8.74094e-08, 0, 0.999848, -0.0174524, 8.74228e-08, -0.0174524, -0.999848, 0.147531, 6.69547, 2.90642)
+inner_radius = 2.37252
+outer_radius = 3.38941
+material = SubResource("StandardMaterial3D_tq1pi")
+script = ExtResource("7_q5fon")
+block_color = 4
+block_style = 11
+
+[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D9/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="ProtoCSGTorus3D10" parent="Circles" instance=ExtResource("5_gpixn")]
+transform = Transform3D(-1, -1.52574e-09, -8.74094e-08, 0, 0.999848, -0.0174524, 8.74228e-08, -0.0174524, -0.999848, 13.1598, 10.0713, -16.7437)
+inner_radius = 2.37252
+outer_radius = 3.38941
+material = SubResource("StandardMaterial3D_ucrd2")
+script = ExtResource("7_q5fon")
+block_color = 4
+block_style = 11
+
+[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D10"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D10/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
+shape = SubResource("BoxShape3D_cp5vh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Circles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68666, -12.8056)
+
+[node name="ProtoCSGBox3D" parent="Circles" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3871, 4.73661, -3.03901)
+size = Vector3(6, 20, 6)
+material = SubResource("StandardMaterial3D_7u8jr")
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80966, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8187, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.145, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.2904, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1359, 7.62991, -3.54235)
+light_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 42.5672
+omni_attenuation = 0.675
 
 [node name="map" type="Node" parent="."]
 
@@ -194,117 +356,8 @@ material = SubResource("StandardMaterial3D_hv665")
 [node name="CharacterBody3D" parent="player" instance=ExtResource("3_tbnfo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5755, -4.23165, 0.278355)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.461989, -0.331368, 0.822655, -0.668936, 0.478838, 0.568541, -0.582315, -0.812963, -0.000446242, 39.0282, 13.4387, -4.42854)
-light_energy = 2.442
-light_indirect_energy = 2.66
-light_volumetric_fog_energy = 0.0
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.342464, 0.244804, 0.907077, -0.737311, 0.528357, -0.420964, -0.582315, -0.812963, -0.000446224, 38.5633, 4.85603, -4.42854)
-light_energy = 2.442
-light_indirect_energy = 2.66
-light_volumetric_fog_energy = 0.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rrmci")
-
-[node name="Circles" type="Node" parent="."]
-
-[node name="ProtoCSGTorus3D8" parent="Circles" instance=ExtResource("5_gpixn")]
-transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, -28.37, 15.47, -4)
-inner_radius = 2.37252
-outer_radius = 3.38941
-material = SubResource("StandardMaterial3D_liyqm")
-script = ExtResource("7_q5fon")
-block_color = 4
-block_style = 11
-
-[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D8"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D8/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D8/Area3D"]
-transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="ProtoCSGTorus3D11" parent="Circles" instance=ExtResource("5_gpixn")]
-transform = Transform3D(3.62055e-08, -0.828285, -0.560307, -1, -4.37114e-08, 1.98742e-21, -2.44918e-08, 0.560307, -0.828285, -7.51195, -1.18904, -2.88005)
-inner_radius = 2.37252
-outer_radius = 3.38941
-material = SubResource("StandardMaterial3D_liyqm")
-script = ExtResource("7_q5fon")
-block_color = 4
-block_style = 11
-
-[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D11"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D11/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D11/Area3D"]
-transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="ProtoCSGTorus3D12" parent="Circles" instance=ExtResource("5_gpixn")]
-transform = Transform3D(2.92208e-08, -0.668495, 0.743717, -1, -4.37114e-08, 4.93327e-15, 3.25089e-08, -0.743717, -0.668495, 23.8587, 13.7604, -14.8973)
-inner_radius = 2.37252
-outer_radius = 3.38941
-material = SubResource("StandardMaterial3D_liyqm")
-script = ExtResource("7_q5fon")
-block_color = 4
-block_style = 11
-
-[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D12"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D12/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D12/Area3D"]
-transform = Transform3D(1, -3.55271e-15, -4.23516e-22, 7.10543e-15, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.141815, -13.8786, 0.175872)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="ProtoCSGTorus3D9" parent="Circles" instance=ExtResource("5_gpixn")]
-transform = Transform3D(-1, -1.52574e-09, -8.74094e-08, 0, 0.999848, -0.0174524, 8.74228e-08, -0.0174524, -0.999848, 0.147531, 6.69547, 2.90642)
-inner_radius = 2.37252
-outer_radius = 3.38941
-material = SubResource("StandardMaterial3D_tq1pi")
-script = ExtResource("7_q5fon")
-block_color = 4
-block_style = 11
-
-[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D9"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D9/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="ProtoCSGTorus3D10" parent="Circles" instance=ExtResource("5_gpixn")]
-transform = Transform3D(-1, -1.52574e-09, -8.74094e-08, 0, 0.999848, -0.0174524, 8.74228e-08, -0.0174524, -0.999848, 13.1598, 10.0713, -16.7437)
-inner_radius = 2.37252
-outer_radius = 3.38941
-material = SubResource("StandardMaterial3D_ucrd2")
-script = ExtResource("7_q5fon")
-block_color = 4
-block_style = 11
-
-[node name="Area3D" type="Area3D" parent="Circles/ProtoCSGTorus3D10"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Circles/ProtoCSGTorus3D10/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141815, 0.0539551, 0.175873)
-shape = SubResource("BoxShape3D_cp5vh")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Circles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68666, -12.8056)
-
-[node name="ProtoCSGBox3D" parent="Circles" instance=ExtResource("1_lhb8t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3871, 4.73661, -3.03901)
-size = Vector3(6, 20, 6)
-material = SubResource("StandardMaterial3D_7u8jr")
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_x23xg")
