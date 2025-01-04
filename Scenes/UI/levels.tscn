@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c3wemdxnocxf2" path="res://Assets/Sprites/Control-V(2).png" id="3_0h77j"]
 [ext_resource type="Texture2D" uid="uid://b6gf2j3s01huc" path="res://Assets/Sprites/Control-V(3).png" id="4_fpci3"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_km5yw"]
+font_size = 36
+
 [sub_resource type="LabelSettings" id="LabelSettings_dsreh"]
 font = ExtResource("2_elxob")
 font_size = 96
@@ -15,160 +18,150 @@ shadow_size = 16
 shadow_color = Color(0, 0, 0, 0.156863)
 shadow_offset = Vector2(2.305, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_km5yw"]
-font_size = 36
-
 [node name="Levels" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_xl5x3")
+metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="TextureRect" parent="."]
+offset_left = -887.0
+offset_top = -698.0
+offset_right = 2151.0
+offset_bottom = 1651.0
+texture = ExtResource("1_jjrta")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -308.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jjrta")
+alignment = 1
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -119.0
-offset_top = 164.0
-offset_right = 119.0
-offset_bottom = 265.0
-grow_horizontal = 2
-text = "Levels"
-label_settings = SubResource("LabelSettings_dsreh")
-horizontal_alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 418.0
-offset_top = 353.0
-offset_right = 690.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("3_0h77j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 690.0
-offset_top = 353.0
-offset_right = 962.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("3_0h77j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureButton3" type="TextureButton" parent="."]
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 962.0
-offset_top = 353.0
-offset_right = 1234.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("3_0h77j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureButton4" type="TextureButton" parent="."]
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 1234.0
-offset_top = 353.0
-offset_right = 1506.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("3_0h77j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureButton5" type="TextureButton" parent="."]
+[node name="TextureButton5" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 827.0
-offset_top = 588.0
-offset_right = 1099.0
-offset_bottom = 760.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("4_fpci3")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 488.0
-offset_top = 307.0
-offset_right = 608.0
-offset_bottom = 357.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 210.0
+offset_bottom = 260.0
+grow_horizontal = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 155
+alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Level 1"
 label_settings = SubResource("LabelSettings_km5yw")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 770.0
-offset_top = 307.0
-offset_right = 890.0
-offset_bottom = 357.0
+[node name="Label3" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Level 2"
 label_settings = SubResource("LabelSettings_km5yw")
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1052.0
-offset_top = 307.0
-offset_right = 1172.0
-offset_bottom = 357.0
+[node name="Label4" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Level 3"
 label_settings = SubResource("LabelSettings_km5yw")
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1316.0
-offset_top = 307.0
-offset_right = 1436.0
-offset_bottom = 357.0
+[node name="Label5" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Level 4"
 label_settings = SubResource("LabelSettings_km5yw")
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="."]
-layout_mode = 0
-offset_left = 912.0
-offset_top = 541.0
-offset_right = 1032.0
-offset_bottom = 591.0
+[node name="Label6" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Level 5"
 label_settings = SubResource("LabelSettings_km5yw")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 890.0
-offset_top = 960.0
-offset_right = 1039.0
-offset_bottom = 1052.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.5
+offset_right = 134.5
+offset_bottom = 134.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+label_settings = SubResource("LabelSettings_dsreh")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -379.0
+offset_top = -400.0
+offset_bottom = -308.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 61
 text = "Back"
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="TextureButton5" to="." method="_on_texture_button_5_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]
