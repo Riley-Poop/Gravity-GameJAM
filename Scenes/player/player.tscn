@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn0wbiwrdsssm"]
+[gd_scene load_steps=25 format=3 uid="uid://dn0wbiwrdsssm"]
 
 [ext_resource type="Script" path="res://Scripts/player/player.gd" id="1_o7u84"]
 [ext_resource type="Shader" path="res://Scenes/player/player.gdshader" id="2_hte7w"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://vppegl1ogc64" path="res://Assets/Sprites/tile005.png" id="8_67aqk"]
 [ext_resource type="Texture2D" uid="uid://dvf38qwjx6d3k" path="res://Assets/Sprites/tile006.png" id="9_g61pt"]
 [ext_resource type="Texture2D" uid="uid://cvv7o4hl5t238" path="res://Assets/Sprites/tile007.png" id="10_rdi86"]
+[ext_resource type="Script" path="res://Scenes/player/pause_menu.gd" id="15_jf06w"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_iqxw0"]
 
@@ -80,6 +81,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8a8ga"]
+font_size = 61
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_o7u84")
@@ -148,3 +154,51 @@ stream = ExtResource("5_7vxdt")
 
 [node name="SlidePlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_5ffb7")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+process_priority = 1
+script = ExtResource("15_jf06w")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.380392)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -54.0
+offset_right = 107.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_8a8ga")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+
+[node name="quittomenu" type="Button" parent="PauseMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Menu"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/quittomenu" to="PauseMenu" method="_on_quittomenu_pressed"]
