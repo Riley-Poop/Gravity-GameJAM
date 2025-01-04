@@ -17,6 +17,10 @@ var footstep_time = 0.0
 @export var SPRINT_STEP_DELAY = 0.35  # Time between running footsteps
 var was_in_air = false  # For tracking landing
 
+var original_collision_height = 2.0  # Adjust to match your default height
+var slide_collision_height = 0.5    # Height during slide
+@onready var collision = $CollisionShape3D # Reference to your collision shape
+
 # Player movement parameters
 @export var WALK_SPEED = 7.0
 @export var SPRINT_SPEED = 12.0
@@ -332,6 +336,7 @@ func start_slide():
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	slide_direction = (transform.basis.z * input_dir.y + transform.basis.x * input_dir.x).normalized()
 	initial_slide_speed = SPRINT_SPEED * SLIDE_SPEED_BOOST
+
 	
 	# Don't modify collision shape anymore
 	# Let the camera handle the sliding feel
@@ -346,15 +351,15 @@ func handle_slide(delta):
 	
 	# Smoother slide transitions
 	var tilt_factor = smoothstep(0, 0.2, slide_progress) * (1 - smoothstep(0.8, 1, slide_progress))
-	var target_tilt = SLIDE_TILT_AMOUNT * tilt_factor
-	slide_camera_tilt = lerp(slide_camera_tilt, target_tilt, delta * 6.0)
 	
-	# Smoother camera height transition
-	var target_height = original_camera_height - (SLIDE_HEIGHT_CHANGE * tilt_factor)
-	camera.position.y = lerp(camera.position.y, target_height, delta * 6.0)
+	# Safely adjust collision height
+	var target_height = lerp(original_collision_height, slide_collision_height, tilt_factor)
+	var old_height = collision.shape.height
+	collision.shape.height = target_height
 	
-	# Smooth camera tilt (combined with movement tilt)
-	camera.rotation.z = lerp(camera.rotation.z, slide_camera_tilt + movement_tilt, delta * 6.0)
+	# Only move camera
+	var target_height_cam = original_camera_height - (SLIDE_HEIGHT_CHANGE * tilt_factor)
+	camera.position.y = lerp(camera.position.y, target_height_cam, delta * 6.0)
 	
 	# Calculate slide speed with smooth deceleration
 	var speed_factor = 1 - smoothstep(0.2, 0.8, slide_progress)
@@ -367,20 +372,26 @@ func handle_slide(delta):
 	if slide_timer >= SLIDE_DURATION:
 		end_slide()
 
+
 func end_slide():
 	is_sliding = false
 	can_slide = false
 	slide_cooldown_timer = SLIDE_COOLDOWN
 	
-	# Create a smoother tween for camera transitions
+	# Create a smoother tween for transitions
 	var tween = create_tween()
 	tween.set_parallel(true)
 	
+	# Smooth collision height reset
+	tween.tween_method(
+		func(h): collision.shape.height = h,
+		collision.shape.height,
+		original_collision_height,
+		0.4
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
 	# Smooth camera position transition
 	tween.tween_property(camera, "position:y", original_camera_height, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	# Smooth camera rotation transition
-	tween.tween_property(camera, "rotation:z", 0.0, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	# Reset slide properties smoothly
 	slide_camera_tilt = 0.0

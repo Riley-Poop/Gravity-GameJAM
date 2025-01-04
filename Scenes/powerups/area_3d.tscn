@@ -265,7 +265,7 @@ skin = SubResource("Skin_a03nq")
 transform = Transform3D(1.01745, 0, 0, 0, 1.01745, 0, 0, 0, 1.01745, 0, 0, 0)
 
 [node name="heart_+_002_5" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode"]
-transform = Transform3D(0.997416, -0.019006, 0.0692764, 0.0206775, 0.99951, -0.0234906, -0.0687959, 0.0248624, 0.997321, 0.0419192, 0.0162807, -0.0223567)
+transform = Transform3D(0.997416, -0.019006, 0.0692763, 0.0206775, 0.99951, -0.0234907, -0.0687958, 0.0248624, 0.997321, 0.0419192, 0.0162807, -0.0223567)
 
 [node name="heart_+_003_6" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode"]
 transform = Transform3D(0.999669, -0.00575069, -0.0250776, 0.00694297, 0.998837, 0.0477188, 0.024774, -0.0478771, 0.998546, 0.0417856, 0.0257336, -0.0386651)
@@ -274,7 +274,7 @@ transform = Transform3D(0.999669, -0.00575069, -0.0250776, 0.00694297, 0.998837,
 transform = Transform3D(0.99135, 0, 0.131242, 0, 1, 0, -0.131242, 0, 0.99135, 0.0490661, -0.00341987, -0.0402732)
 
 [node name="heart_+_005_8" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode"]
-transform = Transform3D(0.886992, 0.265993, 0.377482, -0.182793, 0.952914, -0.241954, -0.424066, 0.14561, 0.893849, 0.0508338, -0.021041, -0.0264688)
+transform = Transform3D(0.886992, 0.265993, 0.377482, -0.182793, 0.952914, -0.241953, -0.424066, 0.14561, 0.893849, 0.0508338, -0.021041, -0.0264688)
 
 [node name="heart_+_006_9" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/root/GLTF_SceneRootNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334485, 0.0329395, -0.0655118)
