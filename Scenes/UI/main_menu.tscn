@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://djvg1reek7yl6"]
+[gd_scene load_steps=72 format=3 uid="uid://djvg1reek7yl6"]
 
 [ext_resource type="Texture2D" uid="uid://dshfna40h6mbg" path="res://addons/proto-csgs/textures/purple/texture_12.png" id="1_l2ld5"]
 [ext_resource type="Script" path="res://Scripts/world/proto_csg_torus_3d.gd" id="2_0kjgt"]
@@ -23,6 +23,9 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 41
 shadow_color = Color(0, 0, 0, 0.258824)
 shadow_offset = Vector2(4.43, -10.62)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c73qd"]
+font_size = 66
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu8h7"]
 resource_local_to_scene = true
@@ -518,6 +521,60 @@ theme_override_fonts/font = ExtResource("14_vac3o")
 theme_override_font_sizes/font_size = 26
 text = "Quit"
 flat = true
+
+[node name="SettingsPanel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -235.5
+offset_right = 378.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_c73qd")
+horizontal_alignment = 1
+
+[node name="ResolutionMode" type="OptionButton" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="WindowMode" type="OptionButton" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SettingsPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control/SettingsPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ApplyButton" type="Button" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Apply"
+
+[node name="BackButton" type="Button" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Back"
 
 [node name="test_scene" type="Node3D" parent="."]
 
