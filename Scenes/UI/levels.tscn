@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwt55olbjf30n"]
+
+[ext_resource type="Texture2D" uid="uid://c12rgicks8vt4" path="res://addons/proto-csgs/textures/dark/texture_08.png" id="1_jjrta"]
+[ext_resource type="Script" path="res://Scripts/ui/levels.gd" id="1_xl5x3"]
+[ext_resource type="FontFile" uid="uid://bodo0076xvik8" path="res://Extra/Fonts/Evil Empire.otf" id="2_elxob"]
+[ext_resource type="Texture2D" uid="uid://c3wemdxnocxf2" path="res://Assets/Sprites/Control-V(2).png" id="3_0h77j"]
+[ext_resource type="Texture2D" uid="uid://b6gf2j3s01huc" path="res://Assets/Sprites/Control-V(3).png" id="4_fpci3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dsreh"]
+font = ExtResource("2_elxob")
+font_size = 66
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.156863)
+shadow_offset = Vector2(2.305, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_km5yw"]
+font_size = 36
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl5x3")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jjrta")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Levels"
+label_settings = SubResource("LabelSettings_dsreh")
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 209.0
+offset_right = 302.0
+offset_bottom = 381.0
+texture_normal = ExtResource("3_0h77j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 302.0
+offset_top = 209.0
+offset_right = 574.0
+offset_bottom = 381.0
+texture_normal = ExtResource("3_0h77j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 574.0
+offset_top = 209.0
+offset_right = 846.0
+offset_bottom = 381.0
+texture_normal = ExtResource("3_0h77j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 846.0
+offset_top = 209.0
+offset_right = 1118.0
+offset_bottom = 381.0
+texture_normal = ExtResource("3_0h77j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 439.0
+offset_top = 444.0
+offset_right = 711.0
+offset_bottom = 616.0
+texture_normal = ExtResource("4_fpci3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 163.0
+offset_right = 220.0
+offset_bottom = 213.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 163.0
+offset_right = 502.0
+offset_bottom = 213.0
+text = "Level 2"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 163.0
+offset_right = 784.0
+offset_bottom = 213.0
+text = "Level 3"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 163.0
+offset_right = 1048.0
+offset_bottom = 213.0
+text = "Level 4"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 397.0
+offset_right = 644.0
+offset_bottom = 447.0
+text = "Level 5"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton5" to="." method="_on_texture_button_5_pressed"]
