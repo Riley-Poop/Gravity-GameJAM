@@ -594,6 +594,7 @@ sky = SubResource("Sky_d0lfn")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.15
 sdfgi_enabled = true
+sdfgi_min_cell_size = 4.06875
 sdfgi_energy = 2.055
 fog_light_color = Color(0.950589, 0.984819, 1, 1)
 fog_density = 0.0005
@@ -806,6 +807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.2197, 2.0781)
 light_energy = 16.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
 omni_range = 233.027
 omni_attenuation = 0.499
 

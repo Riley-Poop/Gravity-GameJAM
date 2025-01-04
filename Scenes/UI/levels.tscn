@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwt55olbjf30n"]
+[gd_scene load_steps=9 format=3 uid="uid://cwt55olbjf30n"]
 
 [ext_resource type="Texture2D" uid="uid://c12rgicks8vt4" path="res://addons/proto-csgs/textures/dark/texture_08.png" id="1_jjrta"]
 [ext_resource type="Script" path="res://Scripts/ui/levels.gd" id="1_xl5x3"]
 [ext_resource type="FontFile" uid="uid://bodo0076xvik8" path="res://Extra/Fonts/Evil Empire.otf" id="2_elxob"]
 [ext_resource type="Texture2D" uid="uid://c3wemdxnocxf2" path="res://Assets/Sprites/Control-V(2).png" id="3_0h77j"]
-[ext_resource type="Texture2D" uid="uid://b6gf2j3s01huc" path="res://Assets/Sprites/Control-V(3).png" id="4_fpci3"]
+[ext_resource type="Texture2D" uid="uid://cv5wi3aihwm10" path="res://Assets/Sprites/level1.png" id="3_h0ely"]
+[ext_resource type="Texture2D" uid="uid://deuycbyn6fb5r" path="res://Assets/Sprites/level 5.png" id="4_8o5n7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_km5yw"]
 font_size = 36
@@ -51,7 +52,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-texture_normal = ExtResource("3_0h77j")
+texture_normal = ExtResource("3_h0ely")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -82,7 +83,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton5" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_fpci3")
+texture_normal = ExtResource("4_8o5n7")
 ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -163,5 +164,6 @@ theme_override_font_sizes/font_size = 61
 text = "Back"
 
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]
