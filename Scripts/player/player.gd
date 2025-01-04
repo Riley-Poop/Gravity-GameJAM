@@ -234,6 +234,11 @@ func handle_momentum(delta):
 func add_momentum(amount):
 	current_momentum = min(current_momentum + amount, MAX_MOMENTUM)
 	
+
+func restore_stamina():
+	current_stamina = MAX_STAMINA
+	can_sprint = true
+	
 # Add this new function to preserve momentum when jumping from slide:
 func handle_slide_jump():
 	if is_sliding and Input.is_action_just_pressed("jump") and can_jump():
