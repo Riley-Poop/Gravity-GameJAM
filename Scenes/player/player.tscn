@@ -83,43 +83,6 @@ animations = [{
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_o7u84")
-MAX_MOMENTUM = null
-FLIP_MOMENTUM_BONUS = null
-MOMENTUM_DRAIN_RATE = null
-MOMENTUM_GAIN_RATE = null
-WALK_STEP_DELAY = null
-SPRINT_STEP_DELAY = null
-WALK_SPEED = null
-SPRINT_SPEED = null
-JUMP_VELOCITY = null
-MOUSE_SENSITIVITY = null
-SPEED_LINES_THRESHOLD = null
-MAX_SPEED_LINES = null
-MAX_STAMINA = null
-STAMINA_DRAIN_RATE = null
-STAMINA_REGEN_RATE = null
-BASE_FOV = null
-SPRINT_FOV_INCREASE = null
-SLIDE_FOV_INCREASE = null
-FOV_CHANGE_SPEED = null
-MOVEMENT_TILT_AMOUNT = null
-MOVEMENT_TILT_SPEED = null
-BOB_FREQUENCY = null
-BOB_AMPLITUDE = null
-SPRINT_BOB_FREQUENCY = null
-SPRINT_BOB_AMPLITUDE = null
-SLIDE_JUMP_BOOST = null
-SLIDE_COYOTE_TIME = null
-SLIDE_JUMP_CONTROL = null
-SLIDE_JUMP_MOMENTUM = null
-SLIDE_TILT_AMOUNT = null
-SLIDE_COOLDOWN = null
-SLIDE_SPEED_BOOST = null
-SLIDE_DURATION = null
-SLIDE_SMOOTH_SPEED = null
-SLIDE_HEIGHT_CHANGE = null
-SLIDE_CAMERA_TILT = null
-normal_gravity = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_iqxw0")
