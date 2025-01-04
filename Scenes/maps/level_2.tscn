@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ofo58w83thf"]
+[gd_scene load_steps=16 format=3 uid="uid://djgun8qnwmg7l"]
 
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_lhb8t"]
 [ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-csgs/textures/dark/texture_01.png" id="2_48apn"]
@@ -11,7 +11,43 @@ albedo_texture = ExtResource("2_48apn")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl31j"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24qyi"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8dh6"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqklq"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfafx"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ei6a"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo51p"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_48apn")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
@@ -52,31 +88,31 @@ block_style = 0
 [node name="ProtoCSGBox3D6" parent="map" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 16.5653, -4.47192)
 size = Vector3(45.2829, 0.165039, 19.2885)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_yl31j")
 block_style = 0
 
 [node name="ProtoCSGBox3D3" parent="map" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 5.42776, 13.5722)
 size = Vector3(45.2829, 13.2769, 1.24679)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_24qyi")
 block_style = 0
 
 [node name="ProtoCSGBox3D4" parent="map" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 5.42776, -22.5353)
 size = Vector3(45.2829, 13.2769, 1.24679)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_w8dh6")
 block_style = 0
 
 [node name="ProtoCSGBox3D2" parent="map" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, 42.4392, 5.41859, -4.47192)
 size = Vector3(0.721663, 13.2658, 19.2885)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_sqklq")
 block_style = 0
 
 [node name="ProtoCSGBox3D5" parent="map" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -80.3314, 5.41859, -4.4763)
 size = Vector3(0.721663, 13.2658, 19.2885)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_lfafx")
 block_style = 0
 
 [node name="ProtoCSGCylinder3D" parent="map" instance=ExtResource("4_hx17r")]
@@ -90,7 +126,7 @@ use_collision = true
 [node name="ProtoCSGBox3D6" parent="map/CSGCombiner3D" instance=ExtResource("1_lhb8t")]
 transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -7.35236, -9.64617, -4.4763)
 size = Vector3(0.721663, 13.2658, 19.2885)
-material = SubResource("StandardMaterial3D_d58uo")
+material = SubResource("StandardMaterial3D_lo51p")
 block_style = 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="map/CSGCombiner3D"]

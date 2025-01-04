@@ -401,12 +401,12 @@ sky_energy_multiplier = 4.95
 ground_bottom_color = Color(0.693714, 0.73326, 1, 1)
 ground_horizon_color = Color(0.658824, 0.643137, 1, 1)
 
-[sub_resource type="Sky" id="Sky_q7s7n"]
+[sub_resource type="Sky" id="Sky_0hdw3"]
 sky_material = SubResource("ProceduralSkyMaterial_jda54")
 
 [sub_resource type="Environment" id="Environment_xijmr"]
 background_mode = 2
-sky = SubResource("Sky_q7s7n")
+sky = SubResource("Sky_0hdw3")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.15
 sdfgi_enabled = true
