@@ -18,7 +18,7 @@ var footstep_time = 0.0
 var was_in_air = false  # For tracking landing
 
 var original_collision_height = 2.0  # Adjust to match your default height
-var slide_collision_height = 0.50    # Height during slide
+var slide_collision_height = 0.55    # Height during slide
 @onready var collision = $CollisionShape3D # Reference to your collision shape
 
 # Player movement parameters
