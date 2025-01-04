@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://6ofo58w83thf"]
+
+[ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_lhb8t"]
+[ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-csgs/textures/dark/texture_01.png" id="2_48apn"]
+[ext_resource type="PackedScene" uid="uid://dn0wbiwrdsssm" path="res://Scenes/player/player.tscn" id="3_tbnfo"]
+[ext_resource type="PackedScene" uid="uid://dilcl7aco8lba" path="res://addons/proto-csgs/proto_csg_cylinder_3d.tscn" id="4_hx17r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d58uo"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ei6a"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_48apn")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wuchj"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.314842, 0.302723, 0.6708, 1)
+sky_energy_multiplier = 4.95
+ground_bottom_color = Color(0.693714, 0.73326, 1, 1)
+ground_horizon_color = Color(0.658824, 0.643137, 1, 1)
+
+[sub_resource type="Sky" id="Sky_0hdw3"]
+sky_material = SubResource("ProceduralSkyMaterial_wuchj")
+
+[sub_resource type="Environment" id="Environment_rrmci"]
+background_mode = 2
+sky = SubResource("Sky_0hdw3")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.15
+sdfgi_enabled = true
+sdfgi_energy = 2.055
+fog_light_color = Color(0.950589, 0.984819, 1, 1)
+fog_density = 0.0005
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0155
+
+[node name="Level 2" type="Node3D"]
+
+[node name="map" type="Node" parent="."]
+
+[node name="ProtoCSGBox3D" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, -5.46096, -4.47192)
+size = Vector3(45.2829, 0.165039, 19.2885)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGBox3D6" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 16.5653, -4.47192)
+size = Vector3(45.2829, 0.165039, 19.2885)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGBox3D3" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 5.42776, 13.5722)
+size = Vector3(45.2829, 13.2769, 1.24679)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGBox3D4" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -18.9062, 5.42776, -22.5353)
+size = Vector3(45.2829, 13.2769, 1.24679)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGBox3D2" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, 42.4392, 5.41859, -4.47192)
+size = Vector3(0.721663, 13.2658, 19.2885)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGBox3D5" parent="map" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -80.3314, 5.41859, -4.4763)
+size = Vector3(0.721663, 13.2658, 19.2885)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="ProtoCSGCylinder3D" parent="map" instance=ExtResource("4_hx17r")]
+transform = Transform3D(10.6557, 0, 0, 0, 10.2877, 0, 0, 0, 9.06643, 0.160398, -3.79062, 2.91129)
+material = SubResource("StandardMaterial3D_3ei6a")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0562, 15.0648, 0)
+use_collision = true
+
+[node name="ProtoCSGBox3D6" parent="map/CSGCombiner3D" instance=ExtResource("1_lhb8t")]
+transform = Transform3D(2.75331, 0, 0, 0, 1.6609, 0, 0, 0, 2.00026, -7.35236, -9.64617, -4.4763)
+size = Vector3(0.721663, 13.2658, 19.2885)
+material = SubResource("StandardMaterial3D_d58uo")
+block_style = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0.000314159, 0, 1, 0, -0.000314159, 0, 1, -8.23404, 0.530823, -4.31231)
+operation = 2
+size = Vector3(4.84125, 2.06165, 22.8654)
+
+[node name="player" type="Node" parent="."]
+
+[node name="CharacterBody3D" parent="player" instance=ExtResource("3_tbnfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6083, -3.78736, -8.45146)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.478891, -0.36531, -0.798256, 0.680819, -0.419505, 0.600418, -0.554211, -0.831002, 0.0478132, -51.1312, 14.0753, 1.70647)
+light_energy = 2.442
+light_indirect_energy = 2.66
+light_volumetric_fog_energy = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rrmci")
