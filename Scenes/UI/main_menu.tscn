@@ -15,6 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://c0x0tvmbhaqck" path="res://addons/proto-csgs/textures/orange/texture_13.png" id="13_asfh1"]
 [ext_resource type="FontFile" uid="uid://bodo0076xvik8" path="res://Extra/Fonts/Evil Empire.otf" id="14_vac3o"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jxkno"]
+font = ExtResource("14_vac3o")
+font_size = 81
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 41
+shadow_color = Color(0, 0, 0, 0.258824)
+shadow_offset = Vector2(4.43, -10.62)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu8h7"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("1_l2ld5")
@@ -412,14 +421,20 @@ fog_density = 0.0005
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0155
 
-[sub_resource type="LabelSettings" id="LabelSettings_jxkno"]
-font = ExtResource("14_vac3o")
-font_size = 81
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 41
-shadow_color = Color(0, 0, 0, 0.258824)
-shadow_offset = Vector2(4.43, -10.62)
+[sub_resource type="Animation" id="Animation_imayv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.200713, 1.3439, -0.0698132)]
+}
 
 [sub_resource type="Animation" id="Animation_vw5k8"]
 resource_name = "new_animation"
@@ -438,21 +453,6 @@ tracks/0/keys = {
 "values": [Vector3(-0.200713, 1.3439, -0.0698132), Vector3(-0.200713, -0.584685, -0.0698132)]
 }
 
-[sub_resource type="Animation" id="Animation_imayv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.200713, 1.3439, -0.0698132)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61gn7"]
 _data = {
 "RESET": SubResource("Animation_imayv"),
@@ -460,6 +460,64 @@ _data = {
 }
 
 [node name="Main Menu" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_07lmt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.5
+offset_top = -104.0
+offset_right = 391.5
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 51
+text = "GRAVITY KEEPS YOU MOVIN"
+label_settings = SubResource("LabelSettings_jxkno")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.502325, 0.647852, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("14_vac3o")
+theme_override_font_sizes/font_size = 26
+text = "PLAY"
+flat = true
+
+[node name="Settings" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.501961, 0.647059, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("14_vac3o")
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+flat = true
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.501961, 0.647059, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("14_vac3o")
+theme_override_font_sizes/font_size = 26
+text = "Quit"
+flat = true
 
 [node name="test_scene" type="Node3D" parent="."]
 
@@ -1020,6 +1078,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8078, 4.37792, -0.883421)
 light_energy = 2.939
 shadow_enabled = true
 omni_range = 96.499
+omni_attenuation = 0.555
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="test_scene"]
 environment = SubResource("Environment_xijmr")
@@ -1029,65 +1088,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4163, 7.51465, -0.814556)
 light_energy = 6.98
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.237954, -0.178093, 0.954809, -0.0683561, 0.977538, 0.199368, -0.968868, -0.112707, 0.220435, 12.8868, 8.0498, 8.44245)
-
-[node name="Control" type="Control" parent="Camera3D"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("13_07lmt")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -391.5
-offset_top = -104.0
-offset_right = 391.5
-offset_bottom = 104.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Camera3D/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 51
-text = "GRAVITY KEEPS YOU MOVIN"
-label_settings = SubResource("LabelSettings_jxkno")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Play" type="Button" parent="Camera3D/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.502325, 0.647852, 1, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("14_vac3o")
-theme_override_font_sizes/font_size = 26
-text = "PLAY"
-flat = true
-
-[node name="Settings" type="Button" parent="Camera3D/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.501961, 0.647059, 1, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("14_vac3o")
-theme_override_font_sizes/font_size = 26
-text = "Settings"
-flat = true
-
-[node name="Quit" type="Button" parent="Camera3D/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.501961, 0.647059, 1, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("14_vac3o")
-theme_override_font_sizes/font_size = 26
-text = "Quit"
-flat = true
+transform = Transform3D(0.237957, -0.178093, 0.954808, -0.0683561, 0.977538, 0.199368, -0.968867, -0.112708, 0.220438, 12.8868, 8.0498, 8.44245)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1095,5 +1096,5 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="Control" method="_on_play_pressed"]
 [connection signal="body_entered" from="test_scene/TorusRings/ProtoCSGTorus3D/Area3D" to="test_scene/TorusRings/ProtoCSGTorus3D" method="_on_area_3d_body_entered"]
-[connection signal="pressed" from="Camera3D/Control/VBoxContainer/Play" to="Camera3D/Control" method="_on_play_pressed"]
