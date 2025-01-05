@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5hq7njcub85e"
+path="res://.godot/imported/DavidKBD - Code injection Pack - 03 - Synthetic Whisper-loop.ogg-0e40198a425a863311303af7bf50a41c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Code injection Pack - 03 - Synthetic Whisper-loop.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Code injection Pack - 03 - Synthetic Whisper-loop.ogg-0e40198a425a863311303af7bf50a41c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

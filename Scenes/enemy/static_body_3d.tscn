@@ -540,9 +540,11 @@ shape = SubResource("SphereShape3D_hkcds")
 [node name="Shoot" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823884, -0.0878825)
 stream = ExtResource("2_7co5a")
+bus = &"SFX"
 
 [node name="Charge" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_qxmf7")
+bus = &"SFX"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0485129, 1.83808, -0.230247)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b18i0f25dsd0u"
+path="res://.godot/imported/DavidKBD - Code injection Pack - 07 - Binary Chaos-loop.ogg-af1c2e05b4285b69eeb49372efeab6dd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Code injection Pack - 07 - Binary Chaos-loop.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Code injection Pack - 07 - Binary Chaos-loop.ogg-af1c2e05b4285b69eeb49372efeab6dd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

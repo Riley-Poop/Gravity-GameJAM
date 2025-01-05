@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwt55olbjf30n"]
+[gd_scene load_steps=12 format=3 uid="uid://cwt55olbjf30n"]
 
 [ext_resource type="Texture2D" uid="uid://c12rgicks8vt4" path="res://addons/proto-csgs/textures/dark/texture_08.png" id="1_jjrta"]
 [ext_resource type="Script" path="res://Scripts/ui/levels.gd" id="1_xl5x3"]
 [ext_resource type="FontFile" uid="uid://bodo0076xvik8" path="res://Extra/Fonts/Evil Empire.otf" id="2_elxob"]
 [ext_resource type="Texture2D" uid="uid://c3wemdxnocxf2" path="res://Assets/Sprites/Control-V(2).png" id="3_0h77j"]
+[ext_resource type="Texture2D" uid="uid://4p266os1csk" path="res://Assets/Sprites/tutorial.png" id="3_1jmce"]
 [ext_resource type="Texture2D" uid="uid://cv5wi3aihwm10" path="res://Assets/Sprites/level1.png" id="3_h0ely"]
 [ext_resource type="Texture2D" uid="uid://deuycbyn6fb5r" path="res://Assets/Sprites/level 5.png" id="4_8o5n7"]
+[ext_resource type="Texture2D" uid="uid://dtxck7ig0xxah" path="res://Assets/Sprites/level3.png" id="6_0nbmj"]
+[ext_resource type="Texture2D" uid="uid://dxngocakd7wtw" path="res://Assets/Sprites/level4.png" id="7_asl51"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_km5yw"]
 font_size = 36
@@ -32,9 +35,10 @@ script = ExtResource("1_xl5x3")
 metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="TextureRect" parent="."]
-offset_left = -887.0
+layout_mode = 0
+offset_left = -879.0
 offset_top = -698.0
-offset_right = 2151.0
+offset_right = 2159.0
 offset_bottom = 1651.0
 texture = ExtResource("1_jjrta")
 
@@ -47,6 +51,15 @@ offset_bottom = -308.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton6" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+texture_normal = ExtResource("3_1jmce")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
@@ -67,7 +80,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_0h77j")
+texture_normal = ExtResource("6_0nbmj")
 ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -75,7 +88,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_0h77j")
+texture_normal = ExtResource("7_asl51")
 ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -96,10 +109,16 @@ offset_top = 210.0
 offset_bottom = 260.0
 grow_horizontal = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 155
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_km5yw")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
 text = "Level 1"
 label_settings = SubResource("LabelSettings_km5yw")
@@ -163,7 +182,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 61
 text = "Back"
 
+[connection signal="pressed" from="HBoxContainer/TextureButton6" to="." method="_on_texture_button_6_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]

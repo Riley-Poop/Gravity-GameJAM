@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bu3fr6bmg5btn"
+path="res://.godot/imported/DavidKBD - Code injection Pack - 02 - Behind the Darkness-loop.ogg-5a8937457a079ad825ed2351cc76a157.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Code injection Pack - 02 - Behind the Darkness-loop.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Code injection Pack - 02 - Behind the Darkness-loop.ogg-5a8937457a079ad825ed2351cc76a157.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

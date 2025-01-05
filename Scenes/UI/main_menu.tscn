@@ -1,7 +1,8 @@
-[gd_scene load_steps=72 format=3 uid="uid://djvg1reek7yl6"]
+[gd_scene load_steps=73 format=3 uid="uid://djvg1reek7yl6"]
 
 [ext_resource type="Texture2D" uid="uid://dshfna40h6mbg" path="res://addons/proto-csgs/textures/purple/texture_12.png" id="1_l2ld5"]
 [ext_resource type="Script" path="res://Scripts/world/proto_csg_torus_3d.gd" id="2_0kjgt"]
+[ext_resource type="AudioStream" uid="uid://bd8vumbfwmgn6" path="res://Assets/Sound FX/Futuristic Assault Rifle Single Shot 02.wav" id="3_647q1"]
 [ext_resource type="PackedScene" uid="uid://dk5sh57urmtdm" path="res://addons/proto-csgs/components/proto_csg_component.tscn" id="3_gsgtc"]
 [ext_resource type="PackedScene" uid="uid://yjolybe6ur3n" path="res://addons/proto-csgs/proto_csg_torus_3d.tscn" id="4_dglcd"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="6_qacmg"]
@@ -561,12 +562,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/SettingsPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Volume"
+text = "Music"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Control/SettingsPanel/VBoxContainer/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="Control/SettingsPanel/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+value = 8.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SettingsPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sound FX"
+horizontal_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+value = 8.0
 
 [node name="ApplyButton" type="Button" parent="Control/SettingsPanel/VBoxContainer"]
 layout_mode = 2
@@ -575,6 +588,15 @@ text = "Apply"
 [node name="BackButton" type="Button" parent="Control/SettingsPanel/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="Button" type="Button" parent="Control/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Play Sound"
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="Control"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823884, -0.0878825)
+stream = ExtResource("3_647q1")
+bus = &"SFX"
 
 [node name="test_scene" type="Node3D" parent="."]
 
@@ -1154,4 +1176,6 @@ libraries = {
 autoplay = "new_animation"
 
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/SettingsPanel/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
 [connection signal="body_entered" from="test_scene/TorusRings/ProtoCSGTorus3D/Area3D" to="test_scene/TorusRings/ProtoCSGTorus3D" method="_on_area_3d_body_entered"]

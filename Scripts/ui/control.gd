@@ -3,7 +3,8 @@ extends Control
 @onready var settings_panel = $SettingsPanel
 @onready var resolution_option = $SettingsPanel/VBoxContainer/ResolutionMode
 @onready var window_mode_option = $SettingsPanel/VBoxContainer/WindowMode
-@onready var volume_slider = $SettingsPanel/VBoxContainer/HBoxContainer/HSlider
+@onready var music_slider = $SettingsPanel/VBoxContainer/HSlider
+@onready var sfx_slider = $SettingsPanel/VBoxContainer/HSlider2
 
 var resolutions = [
 	Vector2i(1280, 720),
@@ -14,7 +15,6 @@ var resolutions = [
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	# Hide settings panel initially
 	settings_panel.hide()
 	
 	# Setup resolution options
@@ -25,15 +25,33 @@ func _ready():
 	window_mode_option.add_item("Windowed")
 	window_mode_option.add_item("Fullscreen")
 	
-	# Setup volume slider
-	volume_slider.min_value = 0
-	volume_slider.max_value = 100
-	volume_slider.value = 80  # Default value
+	# Setup volume sliders
+	music_slider.min_value = 0
+	music_slider.max_value = 100
+	music_slider.value = 80
+	
+	sfx_slider.min_value = 0
+	sfx_slider.max_value = 100
+	sfx_slider.value = 80
 	
 	# Connect signals
 	$VBoxContainer/Settings.pressed.connect(_on_settings_button_pressed)
 	$SettingsPanel/VBoxContainer/ApplyButton.pressed.connect(_on_apply_pressed)
 	$SettingsPanel/VBoxContainer/BackButton.pressed.connect(_on_back_pressed)
+	
+	# Connect volume change signals
+	music_slider.value_changed.connect(_on_music_volume_changed)
+	sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+
+func _on_music_volume_changed(value: float):
+	var volume_db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), volume_db)
+
+func _on_sfx_volume_changed(value: float):
+	var volume_db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), volume_db)
+
+
 
 func _on_settings_button_pressed():
 	settings_panel.show()
@@ -42,6 +60,11 @@ func _on_back_pressed():
 	settings_panel.hide()
 
 func _on_apply_pressed():
+	
+	_on_music_volume_changed(music_slider.value)
+	_on_sfx_volume_changed(sfx_slider.value)
+	
+	save_settings()
 	# Get selected resolution
 	var selected_res = resolutions[resolution_option.selected]
 	
@@ -64,9 +87,6 @@ func _on_apply_pressed():
 	get_tree().root.content_scale_size = selected_res
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 	
-	# Apply volume
-	var volume_db = linear_to_db(volume_slider.value / 100.0)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)
 	
 	# Save settings
 	save_settings()
@@ -75,7 +95,8 @@ func save_settings():
 	var settings = {
 		"resolution": resolution_option.selected,
 		"window_mode": window_mode_option.selected,
-		"volume": volume_slider.value
+		"music_volume": music_slider.value,
+		"sfx_volume": sfx_slider.value
 	}
 	
 	var save_file = FileAccess.open("user://settings.save", FileAccess.WRITE)
@@ -88,11 +109,10 @@ func load_settings():
 		
 		resolution_option.selected = settings.resolution
 		window_mode_option.selected = settings.window_mode
-		volume_slider.value = settings.volume
+		music_slider.value = settings.music_volume
+		sfx_slider.value = settings.sfx_volume
 		
-		# Apply loaded settings
 		_on_apply_pressed()
-
 
 
 
@@ -102,3 +122,11 @@ func load_settings():
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/levels.tscn")
+
+
+func _on_button_pressed() -> void:
+	$Shoot.play()
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

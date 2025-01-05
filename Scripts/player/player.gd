@@ -5,6 +5,8 @@ extends CharacterBody3D
 @onready var slide_player = $Audio/SlidePlayer
 @onready var land_player = $Audio/LandingPlayer
 
+var momentum_enabled = true  # Add at top with other variables
+
 @onready var momentum_bar = $Camera3D/UI/MomentumBar
 @export var MAX_MOMENTUM = 100.0
 @export var FLIP_MOMENTUM_BONUS = 10.0  # Amount of momentum gained from flipping
@@ -217,6 +219,13 @@ func handle_audio(delta):
 		was_in_air = true
 		
 func handle_momentum(delta):
+	if !momentum_enabled:
+		# Keep momentum at max if not enabled
+		current_momentum = MAX_MOMENTUM
+		momentum_bar.value = current_momentum
+		return
+		
+	# Rest of your existing momentum code
 	var is_moving = is_sprinting or is_sliding
 	
 	if is_moving:
@@ -224,17 +233,18 @@ func handle_momentum(delta):
 	else:
 		current_momentum = max(current_momentum - MOMENTUM_DRAIN_RATE * delta, 0)
 	
-	# Update progress bar
 	momentum_bar.value = current_momentum
 	
-	# Check for death immediately when momentum hits 0
 	if current_momentum <= 0:
-		# Force momentum to 0 to ensure death
 		current_momentum = 0
 		die()
-		return  # Exit the function to prevent any further processing
+		return
 		
-		
+
+# Add function to enable momentum loss
+func enable_momentum_system():
+	momentum_enabled = false
+	
 func add_momentum(amount):
 	current_momentum = min(current_momentum + amount, MAX_MOMENTUM)
 	

@@ -22,4 +22,17 @@ func _on_button_pressed() -> void:
 
 
 func _on_texture_button_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/maps/test_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/maps/level_2.tscn")
+
+
+func _on_texture_button_6_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/maps/tutorial.tscn")
+
+
+func _on_texture_button_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/maps/level_3.tscn")
+
+
+func _on_texture_button_4_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/maps/level_4.tscn")
+	

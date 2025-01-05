@@ -116,6 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MomentumBar" type="ProgressBar" parent="Camera3D/UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -144,16 +145,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.475535, 0)
 [node name="FootStepsPlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("3_pd2ck")
 volume_db = -2.825
+bus = &"SFX"
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("4_tfwt1")
 volume_db = 2.205
+bus = &"SFX"
 
 [node name="LandingPlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_7vxdt")
+bus = &"SFX"
 
 [node name="SlidePlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_5ffb7")
+bus = &"SFX"
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
